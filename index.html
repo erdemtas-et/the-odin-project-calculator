@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    
+    <link rel="stylesheet" href="index.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="outer-container">
+        <div class="input-div">
+          <p id="display-value"></p>
+          <p id="current-value" data-placeholder="0"></p>
+         
+        </div>
+      </div>
+      <div class="outer-container">
+        <button id="clear-button" class="buttons red">AC</button>
+        <button value="add" class="buttons orange operator">+</button>
+        <button id="backspace-button" class="buttons orange">&#x232B;</button>
+      </div>
+      <div class="outer-container">
+        <button value="multiply" class="buttons orange operator">*</button>
+        <button value="divide" class="buttons orange operator">/</button>
+        <button value="subtract" class="buttons orange operator">-</button>
+      </div>
+      <div class="outer-container">
+        <button class="number-buttons">1</button>
+        <button class="number-buttons">2</button>
+        <button class="number-buttons">3</button>
+      </div>
+      <div class="outer-container">
+        <button class="number-buttons">4</button>
+        <button class="number-buttons">5</button>
+        <button class="number-buttons">6</button>
+      </div>
+      <div class="outer-container">
+        <button class="number-buttons">7</button>
+        <button class="number-buttons">8</button>
+        <button class="number-buttons">9</button>
+      </div>
+      <div class="outer-container">
+        <button class="number-buttons orange">.</button>
+        <button class="number-buttons">0</button>
+        <button id="equal-button" class="buttons orange">=</button>
+      </div>
+    </div>
+  </body>
+</html>
