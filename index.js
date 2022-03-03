@@ -7,13 +7,19 @@ const add = (num1, num2) => num1 + num2;
 const subtract = (num1, num2) => num1 - num2;
 const multiply = (num1, num2) => num1 * num2;
 const divide = (num1, num2) => num1 / num2;
-//operations
 
+//operations
 let operationMark = "";
+let operationText = document.querySelector("#operation-text")
 
 //operate the function
 const operate = (num1, num2, operation) => {
-  return operation(num1, num2);
+  if(operation(num1, num2) % 1 !== 0) {
+   return operation(num1, num2).toFixed(2)
+  } else {
+    return operation(num1, num2)
+  }
+  
 };
 //operate the function
 
@@ -43,6 +49,7 @@ operatorButton.forEach((operator) => {
   operator.addEventListener("click", (e) => {
     value = e.target.value;
     operationMark = value;
+    operationText.innerHTML = operationMark
     displayValue.textContent = currentValue.textContent;
     currentValue.textContent = "";
   });
@@ -55,18 +62,21 @@ numberPressed();
 const equalButton = document.getElementById("equal-button");
 equalButton.addEventListener("click", () => {
   if (operationMark === "add") {
+    operationText.innerHTML = "equals"
     currentValue.textContent = operate(
       Number(displayValue.textContent),
       Number(currentValue.textContent),
       add
     );
   } else if (operationMark === "subtract") {
+    operationText.innerHTML = "equals"
     currentValue.textContent = operate(
       Number(displayValue.textContent),
       Number(currentValue.textContent),
       subtract
     );
   } else if (operationMark === "divide") {
+    
     if (
       currentValue.textContent === 0 ||
       currentValue.textContent === "0" ||
@@ -74,6 +84,7 @@ equalButton.addEventListener("click", () => {
     ) {
       currentValue.textContent = "Cannot divide by 0";
     } else {
+      operationText.innerHTML = "equals"
       currentValue.textContent = operate(
         Number(displayValue.textContent),
         Number(currentValue.textContent),
@@ -81,6 +92,7 @@ equalButton.addEventListener("click", () => {
       );
     }
   } else if (operationMark === "multiply") {
+    operationText.innerHTML = "equals"
     currentValue.textContent = operate(
       Number(displayValue.textContent),
       Number(currentValue.textContent),
@@ -88,16 +100,19 @@ equalButton.addEventListener("click", () => {
     );
   }
   displayValue.textContent = "";
+  
 });
 
 //equal button pressed
 
+//ac button pressed
 const clearButton = document.getElementById("clear-button");
 
 clearButton.addEventListener("click", () => {
   if (currentValue.textContent !== "" || displayValue.textContent !== "") {
     currentValue.textContent = "";
     displayValue.textContent = "";
+    operationText.textContent = "";
   }
 });
 
